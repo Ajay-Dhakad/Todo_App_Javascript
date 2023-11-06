@@ -1,0 +1,358 @@
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* transition: .2 ease-in; */
+
+}
+
+::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+    /* background-image: url('https://cdn.wallpaperhub.app/cloudcache/9/2/6/4/e/6/9264e612b57c1e56bd290d966ebf2976712fc402.jpg'); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    font-weight: bolder;
+    background-repeat: no-repeat;
+
+    background-color: transparent;
+
+    overflow-x: hidden;
+    padding-bottom: 10px;
+
+
+
+}
+
+nav {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.379);
+    color: black;
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    color: white;
+
+    font-size: 23px;
+    position: fixed;
+    top: 0px;
+
+    /* border: 2px solid rebeccapurple; */
+    /* border: 1px solid rgb(240, 0, 0); */
+
+
+
+
+
+}
+
+
+#logo {
+
+    color: white;
+    animation-name: logo;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+}
+
+@keyframes logo {
+
+    from {
+
+        color: rgb(90, 221, 90);
+
+    }
+
+    to {
+
+        color: rgb(255, 255, 255);
+    }
+
+}
+
+
+.main {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    margin-top: 70px;
+    gap: 20px;
+    /* border: 2px solid red; */
+
+
+}
+
+.savetodo {
+
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.628);
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 20px;
+
+}
+
+#todotext {
+
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    input-security: auto;
+
+
+}
+
+.btn {
+
+    width: 140px;
+    height: 50px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(15, 135, 15);
+    color: white;
+    transition: .1s all;
+
+    /* background-position: center; */
+
+
+
+}
+
+.clear {
+
+    width: 140px;
+    height: 50px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+    border: none;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(192, 14, 14);
+    color: white;
+    margin: 0 10px;
+    transition: .1s all;
+
+}
+
+.clear:active {
+
+    transform: scale(0.95);
+}
+
+.btn:active {
+
+    transform: scale(0.95);
+}
+
+.taskaction {
+
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.alltodo {
+
+    /* border: 2px solid red; */
+    width: 500px;
+    height: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.61);
+    color: white;
+    gap: 10px;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+
+}
+
+.deltodo,
+.editodo {
+
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    object-fit: cover;
+    object-position: center;
+    /* background-color: white; */
+    /* border: 2px solid rgb(0, 0, 0); */
+
+
+}
+
+.editodo {
+    background-color: white;
+}
+
+.hover {
+
+    transition: .2s ease;
+}
+
+.hover:hover {
+    transform: scale(0.9);
+}
+
+.conftodo {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    /* border: 2px solid red; */
+    gap: 10px;
+}
+
+.todos {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    word-wrap: break-word;
+}
+
+.backimg {
+
+    background-image: url('https://cdn.wallpaperhub.app/cloudcache/9/2/6/4/e/6/9264e612b57c1e56bd290d966ebf2976712fc402.jpg');
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    filter: brightness(1);
+    top: 0px;
+}
+
+
+.todoanimation {
+
+
+    animation-name: todopop;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+}
+
+
+
+@keyframes todopop {
+
+    from {
+
+        transform: translateY(50%);
+
+    }
+
+    to {
+
+        transform: translateY(0%);
+
+    }
+
+}
+
+
+
+#update,
+#cancel {
+
+    display: none;
+    animation-name: todopop;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+
+}
+
+.hide {
+
+    display: none;
+}
+
+@media (max-width:510px) {
+
+
+    .savetodo {
+        width: 95%;
+    }
+
+    .todos {
+        width: 90%;
+    }
+
+    .alltodo {
+        width: 100%;
+    }
+
+}
+
+#break {
+
+
+    word-wrap: break-word;
+    width: 90%;
+}
+
+.Date {
+
+    font-weight: bolder;
+    margin-top: 15px;
+    color: red;
+    font-size: 17px;
+    animation: todopop alternate-reverse 1;
+}
