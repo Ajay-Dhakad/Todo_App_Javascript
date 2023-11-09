@@ -368,6 +368,7 @@ nav {
     justify-content: flex-start;    
     height: 20px;
     border-radius:20px ;
+    animation: progress 1s 1;
     /* display: none; */
     
     
@@ -380,14 +381,18 @@ nav {
     width: 0%;
     border-radius:  10px;
     height: 100%; 
+    animation: progress 1s 1;
      
 }
+
+
 
 .conftodo input{
 
     /* display: inline-block; */
 height: 25px;
-border: 20px;
+background-color: red;
+
 
     
     
@@ -398,4 +403,22 @@ border: 20px;
 
     font-size: 20px;
     font-weight: bolder;
+    animation: progress 1s 1;
+    
+}
+
+@keyframes progress {
+
+    from {
+
+scale: .8;
+
+    }
+
+    to {
+
+      scale: 1;
+
+    }
+    
 }
