@@ -52,7 +52,8 @@
                     id: todoid,
                     title: todotitle.value,
                     desc: tododesc.value,
-                    date: a
+                    date: a,
+                    checked : ''
 
 
                 }
@@ -131,6 +132,7 @@
 </div>
 <div class="conftodo">
     <img id='${i.id}'  class="editodo hover" src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-round-2/254000/70-512.png" alt="">
+    <input id='${i.id}' class='check' type="checkbox" ${i.checked}>
     <img id='${i.id}'  class="deltodo hover"src="https://vectorified.com/images/delete-icon-android-37.png" alt="">
 </div>
 
@@ -148,6 +150,9 @@
 
             deleventlistener() //runs when all all elements when created a exist in dom`
             editeventlistener()
+            check()
+            showprogress()
+            
 
         }
 
@@ -174,6 +179,7 @@
                         if (elem.id == id) {
 
                             arr.splice(indx, 1)
+                          
 
                         }
 
@@ -183,8 +189,9 @@
 
                     localStorage.setItem('todo', JSON.stringify(arr))
 
-
-                    showtodo()
+                    
+                    showtodo()  
+           
                 })
 
             })
@@ -297,3 +304,147 @@
 
         }
 
+
+      
+
+        function check(){
+
+
+
+            let check = document.querySelectorAll(".check")
+
+            check.forEach((e) => {
+
+                // console.log(e.checked,e.parentElement.parentElement.id)
+                // checkedarr.push(e)
+
+                e.addEventListener('click',(e)=>{
+
+                    
+
+                    if(e.target.checked === true){
+                      
+                       let indexarr = arr.findIndex(indx => indx.id === e.target.id)
+
+                       arr[indexarr].checked = 'checked' 
+
+                       localStorage.setItem('todo',JSON.stringify(arr))
+
+                       showprogress()
+
+                     
+
+                       
+                        
+                         
+
+                    }
+
+
+                    else if (e.target.checked === false) {
+
+                        console.log(e.target.checked)
+                        let indexarr = arr.findIndex(indx => indx.id === e.target.id)
+
+                        arr[indexarr].checked = '' 
+ 
+                        localStorage.setItem('todo',JSON.stringify(arr))
+ 
+                        showprogress()
+                         
+                            
+
+                    }
+
+                 
+
+                   
+
+                })
+
+
+              
+
+             
+
+            })
+
+
+        }
+
+
+
+     function showprogress(){
+
+    var indexchk = 0
+    var count = 0
+
+     let progressbar = document.querySelector('.progress').style.width = `0%`
+    let progresscont = document.querySelector('.progresscont')
+    let percentcomplete =   document.querySelector('#percentage')
+
+        percentcomplete.textContent = 'No Tasks Added'
+
+
+    progresscont.style.display = 'none'
+        
+
+    
+
+       let check = document.querySelectorAll('.check')
+
+       if (check){
+
+       check.forEach((e,arr1) => {
+
+
+           
+
+            if (e.checked == true)
+            {
+
+                indexchk += 1
+
+            }
+          
+            count = arr1+1
+           
+            
+
+
+        })
+
+       
+
+        if (count){
+
+                progresscont.style.display = 'block'
+                let success_percentage =  Math.floor(100 / (count / indexchk))
+
+                if (success_percentage == NaN || null){
+         
+                 success_percentage = 0
+                
+         
+         
+                }
+         
+                 document.querySelector('.progress').style.width = `${100 / (count / indexchk )}%`
+             
+               percentcomplete.textContent = `Completed : ${success_percentage}%` 
+                 
+              }
+       }
+
+        }
+
+      
+
+
+        // console.log((indexchk),'is')
+        // console.log((count / indexchk),'is')
+
+     
+    
+    
+     
